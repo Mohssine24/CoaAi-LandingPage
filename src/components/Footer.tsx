@@ -100,7 +100,7 @@ export default function Footer() {
           style={{ borderTop: "1px solid rgba(0,0,0,0.07)" }}
         >
           <p className="text-[11px] text-[#A0A0AE]">
-            &copy; 2025 Coa AI. All rights reserved.
+            &copy; 2026 Coa AI. All rights reserved.
           </p>
         </div>
       </div>
