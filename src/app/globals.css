@@ -1,0 +1,200 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-bg-primary: #F4F3F8;
+  --color-surface: #FFFFFF;
+  --color-surface-glass: rgba(255,255,255,0.72);
+  --color-surface-raised: #F0EFF5;
+  --color-surface-hover: #F8F7FC;
+  --color-border: rgba(0,0,0,0.07);
+  --color-border-focus: rgba(0,0,0,0.16);
+  --color-text-primary: #1A1A22;
+  --color-text-secondary: #6B6B7A;
+  --color-text-muted: #A0A0AE;
+  --color-accent: #5856D6;
+  --color-accent-light: #7B79E8;
+  --color-accent-10: rgba(88,86,214,0.08);
+  --color-accent-20: rgba(88,86,214,0.15);
+  --color-action-bg: #1A1A22;
+  --color-action-text: #FFFFFF;
+  --color-red: #E85050;
+  --color-amber: #E8A020;
+
+  --font-nunito: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+}
+
+body {
+  background: linear-gradient(180deg, #EDE4F0 0%, #E8EDF8 30%, #F0F0F8 60%, #F4F3F8 100%);
+  background-attachment: fixed;
+  color: #1A1A22;
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Skip to content */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  padding: 8px 16px;
+  background: #5856D6;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.skip-to-content:focus {
+  top: 12px;
+}
+
+/* Focus visible */
+*:focus-visible {
+  outline: 2px solid #5856D6;
+  outline-offset: 2px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F4F3F8;
+}
+::-webkit-scrollbar-thumb {
+  background: #D0CFD8;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B8B7C2;
+}
+
+/* Float animations */
+@keyframes floatA {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(30px, -20px); }
+}
+@keyframes floatB {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-20px, 30px); }
+}
+@keyframes floatC {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-15px, -25px); }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes draw-line {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Blog article prose */
+.prose-coa h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1A1A22;
+  margin-top: 48px;
+  margin-bottom: 16px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.prose-coa h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1A1A22;
+  margin-top: 36px;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+.prose-coa h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1A1A22;
+  margin-top: 28px;
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+.prose-coa p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #6B6B7A;
+  margin-bottom: 20px;
+}
+.prose-coa strong {
+  color: #1A1A22;
+  font-weight: 700;
+}
+.prose-coa a {
+  color: #5856D6;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 150ms ease;
+}
+.prose-coa a:hover {
+  color: #7B79E8;
+}
+.prose-coa ul, .prose-coa ol {
+  margin-bottom: 20px;
+  padding-left: 24px;
+}
+.prose-coa ul { list-style-type: disc; }
+.prose-coa ol { list-style-type: decimal; }
+.prose-coa li {
+  font-size: 16px;
+  line-height: 1.75;
+  color: #6B6B7A;
+  margin-bottom: 8px;
+}
+.prose-coa li strong { color: #1A1A22; }
+.prose-coa blockquote {
+  border-left: 3px solid #5856D6;
+  padding-left: 20px;
+  margin: 24px 0;
+  font-style: italic;
+  color: #6B6B7A;
+}
+.prose-coa table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 14px;
+}
+.prose-coa th {
+  text-align: left;
+  padding: 12px 16px;
+  background: #F0EFF5;
+  color: #1A1A22;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+.prose-coa td {
+  padding: 10px 16px;
+  color: #6B6B7A;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.prose-coa tr:hover td {
+  background: rgba(88,86,214,0.02);
+}
+.prose-coa hr {
+  border: none;
+  border-top: 1px solid rgba(0,0,0,0.07);
+  margin: 40px 0;
+}
+.prose-coa code {
+  background: #F0EFF5;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #5856D6;
+}
