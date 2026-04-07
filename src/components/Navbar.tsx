@@ -60,7 +60,7 @@ export default function Navbar() {
         className="fixed left-0 top-0 z-50 w-full transition-all duration-300"
         style={{
           height: 72,
-          backgroundColor: scrolled ? "rgba(255,255,255,0.80)" : "transparent",
+          backgroundColor: scrolled ? "rgba(250,250,248,0.85)" : "transparent",
           backdropFilter: scrolled ? "blur(20px) saturate(180%)" : "none",
           WebkitBackdropFilter: scrolled ? "blur(20px) saturate(180%)" : "none",
           borderBottom: scrolled
@@ -69,7 +69,6 @@ export default function Navbar() {
         }}
       >
         <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-5 lg:px-8">
-          {/* Logo */}
           <Link
             href="/"
             onClick={scrollToTop}
@@ -83,19 +82,18 @@ export default function Navbar() {
               className="h-9 w-auto rounded-lg"
               priority
             />
-            <span className="text-lg font-bold tracking-[1px] text-[#1A1A22]">
+            <span className="font-[family-name:var(--font-heading)] text-lg font-bold tracking-[0.5px] text-[#111111]">
               Coa AI
             </span>
           </Link>
 
-          {/* Desktop links */}
           <div className="hidden items-center gap-8 lg:flex">
             {NAV_LINKS.map(({ label, href }) => (
               <Link
                 key={href}
                 href={href}
                 onClick={(e) => handleAnchorClick(e, href)}
-                className="text-[14px] font-medium text-[#6B6B7A] transition-colors duration-150 hover:text-[#1A1A22]"
+                className="text-[14px] font-medium text-[#6B7280] transition-colors duration-150 hover:text-[#111111]"
               >
                 {label}
               </Link>
@@ -104,39 +102,26 @@ export default function Navbar() {
             <Link
               href="/#download"
               onClick={(e) => handleAnchorClick(e, "#download")}
-              className="ml-2 flex h-[40px] items-center gap-2 rounded-xl bg-[#5856D6] px-5 text-[14px] font-bold text-white transition-all duration-200 hover:bg-[#7B79E8] active:scale-[0.97]"
+              className="ml-2 flex h-[40px] items-center gap-2 rounded-xl bg-[#111111] px-5 text-[14px] font-bold text-white transition-all duration-200 hover:bg-[#333333] active:scale-[0.97]"
             >
               Get the App
               <ArrowRight size={14} />
             </Link>
           </div>
 
-          {/* Mobile hamburger */}
           <button
             type="button"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             onClick={() => setMobileOpen((v) => !v)}
-            className="relative z-50 flex h-10 w-10 items-center justify-center text-[#1A1A22] lg:hidden"
+            className="relative z-50 flex h-10 w-10 items-center justify-center text-[#111111] lg:hidden"
           >
             <AnimatePresence mode="wait" initial={false}>
               {mobileOpen ? (
-                <motion.span
-                  key="x"
-                  initial={{ opacity: 0, rotate: -90 }}
-                  animate={{ opacity: 1, rotate: 0 }}
-                  exit={{ opacity: 0, rotate: 90 }}
-                  transition={{ duration: 0.15 }}
-                >
+                <motion.span key="x" initial={{ opacity: 0, rotate: -90 }} animate={{ opacity: 1, rotate: 0 }} exit={{ opacity: 0, rotate: 90 }} transition={{ duration: 0.15 }}>
                   <X size={24} />
                 </motion.span>
               ) : (
-                <motion.span
-                  key="menu"
-                  initial={{ opacity: 0, rotate: 90 }}
-                  animate={{ opacity: 1, rotate: 0 }}
-                  exit={{ opacity: 0, rotate: -90 }}
-                  transition={{ duration: 0.15 }}
-                >
+                <motion.span key="menu" initial={{ opacity: 0, rotate: 90 }} animate={{ opacity: 1, rotate: 0 }} exit={{ opacity: 0, rotate: -90 }} transition={{ duration: 0.15 }}>
                   <Menu size={24} />
                 </motion.span>
               )}
@@ -145,56 +130,21 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile drawer */}
       <AnimatePresence>
         {mobileOpen && (
           <>
-            <motion.div
-              key="backdrop"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-              className="fixed inset-0 z-40 lg:hidden"
-              style={{ backgroundColor: "rgba(0,0,0,0.3)" }}
-              onClick={closeMobile}
-              aria-hidden="true"
-            />
-
-            <motion.aside
-              key="drawer"
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-              className="fixed right-0 top-0 z-40 flex h-full w-[280px] flex-col lg:hidden"
-              style={{
-                backgroundColor: "#FFFFFF",
-                borderLeft: "1px solid rgba(0,0,0,0.07)",
-              }}
-            >
+            <motion.div key="backdrop" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }} className="fixed inset-0 z-40 bg-[rgba(0,0,0,0.25)] lg:hidden" onClick={closeMobile} aria-hidden="true" />
+            <motion.aside key="drawer" initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }} transition={{ duration: 0.3, ease: "easeOut" }} className="fixed right-0 top-0 z-40 flex h-full w-[280px] flex-col border-l border-[#E5E5E3] bg-white lg:hidden">
               <div className="h-[72px] shrink-0" />
-
               <nav className="flex flex-1 flex-col">
                 {NAV_LINKS.map(({ label, href }) => (
-                  <Link
-                    key={href}
-                    href={href}
-                    onClick={(e) => handleAnchorClick(e, href)}
-                    className="flex h-14 items-center px-6 text-[17px] font-medium text-[#6B6B7A] transition-colors duration-150 hover:bg-[rgba(0,0,0,0.03)] hover:text-[#1A1A22]"
-                  >
+                  <Link key={href} href={href} onClick={(e) => handleAnchorClick(e, href)} className="flex h-14 items-center px-6 text-[17px] font-medium text-[#6B7280] transition-colors hover:bg-[#F5F5F3] hover:text-[#111111]">
                     {label}
                   </Link>
                 ))}
-
                 <div className="mt-auto p-6">
-                  <Link
-                    href="/#download"
-                    onClick={(e) => handleAnchorClick(e, "#download")}
-                    className="flex h-[48px] w-full items-center justify-center gap-2 rounded-xl bg-[#5856D6] text-[15px] font-bold text-white transition-all duration-200 hover:bg-[#7B79E8]"
-                  >
-                    Get the App
-                    <ArrowRight size={14} />
+                  <Link href="/#download" onClick={(e) => handleAnchorClick(e, "#download")} className="flex h-[48px] w-full items-center justify-center gap-2 rounded-xl bg-[#111111] text-[15px] font-bold text-white transition-all hover:bg-[#333333]">
+                    Get the App <ArrowRight size={14} />
                   </Link>
                 </div>
               </nav>

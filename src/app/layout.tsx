@@ -1,13 +1,20 @@
 import type { Metadata } from "next";
-import { Nunito } from "next/font/google";
+import { Sora, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const nunito = Nunito({
+const sora = Sora({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-  variable: "--font-nunito",
+  weight: ["400", "600", "700", "800"],
+  variable: "--font-heading",
+  display: "swap",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-body",
   display: "swap",
 });
 
@@ -50,7 +57,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${nunito.variable} antialiased`}>
+    <html lang="en" className={`${sora.variable} ${dmSans.variable} antialiased`}>
       <head>
         <script
           type="application/ld+json"
@@ -73,7 +80,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen flex flex-col font-[family-name:var(--font-nunito)]">
+      <body className="min-h-screen flex flex-col font-[family-name:var(--font-body)]">
         <a href="#main-content" className="skip-to-content">
           Skip to content
         </a>

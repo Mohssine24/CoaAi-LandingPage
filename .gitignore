@@ -5,3 +5,7 @@ out/
 *.tsbuildinfo
 next-env.d.ts
 .claude/
+.env*
+
+# Email subscription data — never commit user data
+/data/
