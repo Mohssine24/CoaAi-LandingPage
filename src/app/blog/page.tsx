@@ -7,6 +7,17 @@ export const metadata: Metadata = {
   description:
     "Training tips, nutrition science, and behind-the-scenes updates from the Coa AI team.",
   alternates: { canonical: "/blog" },
+  openGraph: {
+    title: "Blog — Coa AI",
+    description: "Training tips, nutrition science, and behind-the-scenes updates from the Coa AI team.",
+    url: "https://coaai.app/blog",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Blog — Coa AI",
+    description: "Training tips, nutrition science, and behind-the-scenes updates from the Coa AI team.",
+  },
 };
 
 export default function BlogPage() {

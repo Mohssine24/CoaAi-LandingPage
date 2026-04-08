@@ -25,6 +25,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "article",
       url: `https://coaai.app/blog/${post.slug}`,
     },
+    twitter: {
+      card: "summary",
+      title: post.metaTitle,
+      description: post.metaDescription,
+    },
   };
 }
 
