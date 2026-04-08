@@ -33,7 +33,7 @@ export const metadata: Metadata = {
       "Personalized workout plans, carb-cycled meal plans, and a 24/7 AI coach that adapts to your body. Download now on Google Play.",
     images: [
       {
-        url: "https://coaai.app/og-image.png",
+        url: "https://coaai.app/og-image.jpg",
         width: 1200,
         height: 630,
       },
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     title: "Coa AI — Your Personal AI Fitness Coach",
     description:
       "Personalized workout plans, carb-cycled meal plans, and a 24/7 AI coach that adapts to your body.",
-    images: ["https://coaai.app/og-image.png"],
+    images: ["https://coaai.app/og-image.jpg"],
   },
   metadataBase: new URL("https://coaai.app"),
   alternates: {
