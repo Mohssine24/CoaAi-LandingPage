@@ -52,7 +52,7 @@ export default function Footer() {
           ))}
         </div>
         <div className="mt-10 border-t border-[#E5E5E3] pt-8 text-center">
-          <p className="text-[11px] text-[#9CA3B8]">&copy; 2026 Coa AI. All rights reserved.</p>
+          <p className="text-[11px] text-[#9CA3B8]">&copy; 2026 Coa AI. All rights reserved</p>
         </div>
       </div>
     </footer>
