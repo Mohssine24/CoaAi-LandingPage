@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { put, list } from "@vercel/blob";
+import { put, list, getDownloadUrl } from "@vercel/blob";
 import { timingSafeEqual } from "crypto";
 
 const BLOB_NAME = "CoaAi_IOS.csv";
@@ -53,7 +53,8 @@ async function readCsv(): Promise<string> {
   try {
     const { blobs } = await list({ prefix: BLOB_NAME });
     if (blobs.length === 0) return CSV_HEADER;
-    const res = await fetch(blobs[0].url);
+    const downloadUrl = await getDownloadUrl(blobs[0].url);
+    const res = await fetch(downloadUrl);
     return await res.text();
   } catch {
     return CSV_HEADER;
@@ -61,7 +62,7 @@ async function readCsv(): Promise<string> {
 }
 
 async function writeCsv(content: string): Promise<void> {
-  await put(BLOB_NAME, content, { access: "public", addRandomSuffix: false });
+  await put(BLOB_NAME, content, { access: "private", addRandomSuffix: false });
 }
 
 /* ── POST: subscribe ────────────────────────────────────────── */
